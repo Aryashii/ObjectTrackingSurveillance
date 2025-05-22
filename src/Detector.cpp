@@ -7,6 +7,10 @@ Detector::Detector(const std::string& cfg, const std::string& weights, const std
     net.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
     net.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
     
+    if(net.empty()){
+        std::cerr<<"Error loading the YOLO network" << std::endl;
+        return;
+    }
     std::ifstream ifs(names);
     if (!ifs.is_open()) {
         std::cerr << "Error: Could not open class names file: " << names << std::endl;
@@ -22,10 +26,12 @@ Detector::Detector(const std::string& cfg, const std::string& weights, const std
         
 }
 
+//Perform object detection, returns a list of detected objects as Rects woth class IDs and confidences
 std::vector<cv::Rect> Detector::detect(const cv::Mat& frame, std::vector<std::string>& classNames){
     std::vector<cv::Rect> boxes;
     classNames.clear();
 
+    //Convert to blob 
     cv::Mat blob;
     cv::dnn::blobFromImage(frame, blob, 1.0/255.0, cv::Size(416,416), cv::Scalar(), true, false);
     net.setInput(blob);
@@ -36,6 +42,7 @@ std::vector<cv::Rect> Detector::detect(const cv::Mat& frame, std::vector<std::st
     std::vector<int> classIds;
     std::vector<float> confidences;
 
+    //Filter out detectons
     for(const auto& output : outputs){
         for(int i = 0; i < output.rows; ++i){
             auto data = output.ptr<float>(i);

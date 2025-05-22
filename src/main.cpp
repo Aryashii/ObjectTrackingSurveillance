@@ -54,32 +54,31 @@ int main(){
         std::vector<std::string> classNames;
         std::vector<cv::Rect> boxes = detector.detect(frame, classNames);
 
-
+        //Filter relevant classes
         std::vector<cv::Rect> filtered;
         std::vector<std::string> flabels;
         for(size_t i = 0; i < boxes.size(); ++i){
             const std::string& label = classNames[i];
 
             if(label == "person" || label == "car" || label == "bus" || label == "truck" || label == "bicycle" || label == "motorbike"){
-                // cv::rectangle(frame, boxes[i], cv::Scalar(0,255,0), 2);
-                // cv::putText(frame, label, boxes[i].tl(), cv::FONT_HERSHEY_SIMPLEX , 0.9, cv::Scalar(0,0,255), 1);
-
                 filtered.push_back(boxes[i]);
                 flabels.push_back(classNames[i]);
             }
         }
+        //Calculate real time FPS
         int64 end = cv::getTickCount();
         double timeMs = (end - start) * 1000.0 / cv::getTickFrequency();
         double realFps = 1000.0 / timeMs; 
 
+        //Update Tracker 
         tracker.update(filtered, flabels, realFps);
         tracker.draw(frame);
     
-
         writer.write(frame);
 
         cv::imshow("Detection", frame);
 
+        //Press p to pause/resume, Q to quit
         int key = cv::waitKey(paused ? 0 : 1);
         if (key == 'p' || key == 'P') {
             paused = !paused;
@@ -93,6 +92,7 @@ int main(){
         }
     }
 
+    //Release camera, writer and destroy all openCV windows 
     cap.release();
     writer.release();
     cv::destroyAllWindows();

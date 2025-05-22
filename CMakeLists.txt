@@ -10,7 +10,7 @@ include_directories(${OpenCV_INCLUDE_DIRS} include)
 
 add_executable(ObjectTrackingSurveillance
                 src/main.cpp
-                src/detector.cpp
+                src/Detector.cpp
                 src/Tracker.cpp
               )
 

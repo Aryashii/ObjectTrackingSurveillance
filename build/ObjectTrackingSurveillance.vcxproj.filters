@@ -4,7 +4,7 @@
     <ClCompile Include="C:\Users\KIIT\Desktop\ObjectTrackingSurveillance\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\KIIT\Desktop\ObjectTrackingSurveillance\src\detector.cpp">
+    <ClCompile Include="C:\Users\KIIT\Desktop\ObjectTrackingSurveillance\src\Detector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\KIIT\Desktop\ObjectTrackingSurveillance\src\Tracker.cpp">

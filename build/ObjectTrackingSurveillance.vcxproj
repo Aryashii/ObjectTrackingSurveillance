@@ -341,7 +341,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\KIIT\Desktop\ObjectTrackingSurveillance\src\main.cpp" />
-    <ClCompile Include="C:\Users\KIIT\Desktop\ObjectTrackingSurveillance\src\detector.cpp" />
+    <ClCompile Include="C:\Users\KIIT\Desktop\ObjectTrackingSurveillance\src\Detector.cpp" />
     <ClCompile Include="C:\Users\KIIT\Desktop\ObjectTrackingSurveillance\src\Tracker.cpp" />
   </ItemGroup>
   <ItemGroup />

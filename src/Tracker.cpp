@@ -6,6 +6,7 @@ Tracker::Tracker() {}
 
 cv::KalmanFilter Tracker::createKalmanFilter(const cv::Point2f& pt){
     cv::KalmanFilter kf(4,2,0);
+    //Setting up the transition matrix to model constant velocity motion
     kf.transitionMatrix = (cv::Mat_<float>(4,4) <<
             1, 0, 1, 0,
             0, 1, 0, 1,
@@ -38,6 +39,7 @@ int Tracker::matchObject(const cv::Point2f& detectionPt) {
 void Tracker::update(const std::vector<cv::Rect>& detections, const std::vector<std::string>& labels, double fps){
     std::set<int> updated;
 
+    //Match new detections
     for(size_t i = 0; i < detections.size(); ++i){
         cv::Point2f center(
             detections[i].x + detections[i].width / 2.0f,
@@ -52,7 +54,7 @@ void Tracker::update(const std::vector<cv::Rect>& detections, const std::vector<
             obj.label = labels[i];
             obj.kf = createKalmanFilter(center);
             obj.last_position = center;
-            obj.bounding_box = detections[i];  // ADD THIS
+            obj.bounding_box = detections[i]; 
             obj.trajectory.push_back(center);
             obj.velocity = 0.0f;
             objects[obj.id] = obj;
@@ -63,7 +65,7 @@ void Tracker::update(const std::vector<cv::Rect>& detections, const std::vector<
             cv::Mat meas = (cv::Mat_<float>(2,1) << center.x, center.y);
             obj.kf.correct(meas);
             obj.last_position = center;
-            obj.bounding_box = detections[i];  // UPDATE bounding box
+            obj.bounding_box = detections[i]; 
             obj.trajectory.push_back(center);
 
             //Computing Velocity 
@@ -79,6 +81,7 @@ void Tracker::update(const std::vector<cv::Rect>& detections, const std::vector<
         }
     }
 
+    //Predict position for missing detections and mark them for removal if lost
     std::vector<int> to_remove;
     for(auto& [id, obj] : objects) {
         if(updated.find(id) == updated.end()){
@@ -114,10 +117,12 @@ void Tracker::update(const std::vector<cv::Rect>& detections, const std::vector<
 }
 
 void Tracker::draw(cv::Mat& frame){
+    //Define restricted zone 
     cv::Rect restrictedZone(200,200,150,200);
     cv::Scalar zoneColor(0,0,255);
     cv::rectangle(frame, restrictedZone, zoneColor, 2);
     
+    //Iterate through all detected objects to draw their info
     for(const auto& [id, obj] : objects){
         //Draw current position as filled circle
         cv::circle(frame, obj.last_position, 5, cv::Scalar(0,255,255), -1);
@@ -134,9 +139,9 @@ void Tracker::draw(cv::Mat& frame){
         // Colored bounding box
         cv::Scalar color;
         if (obj.label == "person") {
-            color = cv::Scalar(255, 0, 255);  // Pink
+            color = cv::Scalar(255, 0, 255);  //Pink
         } else {
-            color = cv::Scalar(255, 0, 0);    // Blue
+            color = cv::Scalar(255, 0, 0);    //Blue
         }
         cv::rectangle(frame, obj.bounding_box, color, 2);
 
