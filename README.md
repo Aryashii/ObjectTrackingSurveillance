@@ -43,11 +43,11 @@ cmake --build .
 
 ## How to Run
 
-# After building, run the executable:
+After building, run the executable:
 ./ObjectTrackingSurveillance
 
-# You will be prompted to enter the path to a video file.
-# Leave it empty to use the default webcam.
+You will be prompted to enter the path to a video file.
+Leave it empty to use the default webcam.
 
 ## Important Notes
 
