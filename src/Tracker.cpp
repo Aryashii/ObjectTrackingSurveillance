@@ -19,10 +19,12 @@ cv::KalmanFilter Tracker::createKalmanFilter(const cv::Point2f& pt){
     kf.measurementNoiseCov = cv::Mat::eye(2, 2, CV_32F) * 1e-1;
     kf.errorCovPost = cv::Mat::eye(4, 4, CV_32F);
 
+    //Set initial state 
     kf.statePost.at<float>(0) = pt.x;
     kf.statePost.at<float>(1) = pt.y;
     kf.statePost.at<float>(2) = 0;
     kf.statePost.at<float>(3) = 0;
+    
     return kf;
 }
 
