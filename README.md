@@ -22,7 +22,7 @@ ObjectTrackingSurveillance/ \
 ├── include/ \
 │   ├── Detector.hpp \
 │   └── Tracker.hpp \
-├── src/ \ 
+├── src/  \
 │   ├── main.cpp \
 │   ├── detector.cpp \
 │   └── Tracker.cpp \
