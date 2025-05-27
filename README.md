@@ -35,7 +35,8 @@ ObjectTrackingSurveillance/ \
 ├── test/ \
 │   └── test_tracker.cpp \
 ├── CMakeLists.txt \
-└── README.md \
+└── README.md 
+
  
 ## How to build
 
@@ -64,6 +65,6 @@ cmake --build build \
 ## Important Notes
 
 I have hardcoded YOLO config, weights, and class names files along with the output video path are currently in main.cpp to keep it simple while experimenting locally. If running on a differnt system, you must: \
-- Ensure the weights/ and recordings/ folders exist.\
-- Update the paths inside main.cpp \
-- The test_tracker.exe may be located inside a subdirectory within the build/ folder, depending on your CMake configuration.
+Ensure the weights/ and recordings/ folders exist.\
+Update the paths inside main.cpp \
+The test_tracker.exe may be located inside a subdirectory within the build/ folder, depending on your CMake configuration.
