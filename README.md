@@ -18,37 +18,37 @@ This is a real-time Object Tracking and Surveillance Project using C++ and OpenC
 
 ## File structure
 
-ObjectTrackingSurveillance/
-├── include/
-│   ├── Detector.hpp
-│   └── Tracker.hpp
-├── src/
-│   ├── main.cpp
-│   ├── detector.cpp
-│   └── Tracker.cpp
-├── weights/
-│   ├── yolov3-tiny.cfg
-│   ├── yolov3-tiny.weights
-│   └── coco.names
-├── recordings/
-│   └── [output video will be saved here]
-├── test/
-│   └── test_tracker.cpp
-├── CMakeLists.txt
-└── README.md
-
+ObjectTrackingSurveillance/ \
+├── include/ \
+│   ├── Detector.hpp \
+│   └── Tracker.hpp \
+├── src/ \ 
+│   ├── main.cpp \
+│   ├── detector.cpp \
+│   └── Tracker.cpp \
+├── weights/ \
+│   ├── yolov3-tiny.cfg \
+│   ├── yolov3-tiny.weights \
+│   └── coco.names \
+├── recordings/ \
+│   └── [output video will be saved here] \
+├── test/ \
+│   └── test_tracker.cpp \
+├── CMakeLists.txt \
+└── README.md \
+ 
 ## How to build
 
-mkdir build && cd build
-cmake ..
+mkdir build && cd build \
+cmake .. \
 cmake --build .
 
 ## How to Run
 
-After building, run the executable:
+After building, run the executable:\
 ./ObjectTrackingSurveillance
 
-You will be prompted to enter the path to a video file.
+You will be prompted to enter the path to a video file.\
 Leave it empty to use the default webcam.
 
 ## Testing
@@ -57,13 +57,13 @@ This project includes basic unit tests for the Tracker module using the [doctest
 
 To build and run the tests:
 
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
+cmake --build build \
 ./build/Release/test_tracker.exe
 
 ## Important Notes
 
 I have hardcoded YOLO config, weights, and class names files along with the output video path are currently in main.cpp to keep it simple while experimenting locally. If running on a differnt system, you must: \
-Ensure the weights/ and recordings/ folders exist.\
-Update the paths inside main.cpp \
-The test_tracker.exe may be located inside a subdirectory within the build/ folder, depending on your CMake configuration.
+- Ensure the weights/ and recordings/ folders exist.\
+- Update the paths inside main.cpp \
+- The test_tracker.exe may be located inside a subdirectory within the build/ folder, depending on your CMake configuration.
