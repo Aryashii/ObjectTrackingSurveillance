@@ -1,0 +1,16 @@
+Project Deliverables
+
+The demo video and project report are available in the shared Google Drive folder below:
+
+Google Drive Folder:
+https://drive.google.com/drive/folders/1cU1bqpoV1TUWtU5BtriSXUmM0JRK7_MY?usp=sharing
+
+Contents:
+- DemoVideo.mp4
+- Object_Tracking_and_Surveillance_Report.docx
+- Object_Tracking_and_Surveillance_Report.pdf 
+
+(Note : Report is available in both .docx and .pdf formats.)
+
+
+For any issues accessing the links, feel free to contact me.
