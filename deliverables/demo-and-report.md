@@ -6,9 +6,9 @@ The demo video and project report are available in the shared Google Drive folde
 [Drive Folder - Demo and Report](https://drive.google.com/drive/folders/1cU1bqpoV1TUWtU5BtriSXUmM0JRK7_MY?usp=drive_link)
 
 ### Contents:
-- 🎥 `DemoVideo.mp4`
-- 📄 `Object_Tracking_and_Surveillance_Report.docx`
-- 📄 `Object_Tracking_and_Surveillance_Report.pdf`  
+-  `DemoVideo.mp4`
+-  `Object_Tracking_and_Surveillance_Report.docx`
+-  `Object_Tracking_and_Surveillance_Report.pdf`  
   _(Report available in both .docx and .pdf formats)_
 
 ---
