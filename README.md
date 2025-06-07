@@ -72,4 +72,4 @@ Update the paths inside main.cpp \
 The test_tracker.exe may be located inside a subdirectory within the build/ folder, depending on your CMake configuration. \
 The deliverables/ folder contains the Project Report and a short demo video.
 
-> Note: A small type ("openeing") appears in the demo video, but it has been corrected in the source code.
+> Note: A small typo ("openeing") appears in the demo video, but it has been corrected in the source code.
