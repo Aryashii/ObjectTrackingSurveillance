@@ -19,7 +19,7 @@ int main(){
     
     if(!inputPath.empty()){
         cap.open(inputPath);
-        std::cout << "Openeing Video File : " << inputPath << std::endl;
+        std::cout << "Opening Video File : " << inputPath << std::endl;
     }
     else{
         cap.open(0);
