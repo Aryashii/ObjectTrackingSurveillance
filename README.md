@@ -35,7 +35,7 @@ ObjectTrackingSurveillance/ \
 ├── test/ \
 │   └── test_tracker.cpp \
 ├── deliverables/ \
-│   └── demo-and-report.txt \
+│   └── demo-and-report.md \
 ├── CMakeLists.txt \
 └── README.md 
 
